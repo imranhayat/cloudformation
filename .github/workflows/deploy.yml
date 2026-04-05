@@ -61,8 +61,9 @@ jobs:
       - name: Download current ECS task definition
         run: |
           aws ecs describe-task-definition \
-            --task-definition ${{ env.ECS_CLUSTER }}-task \
+            --task-definition ${{ env.ECR_REPOSITORY }}-task \
             --query taskDefinition \
+            | jq 'del(.taskDefinitionArn,.revision,.status,.registeredAt,.registeredBy,.compatibilities,.requiresAttributes)' \
             > task-definition.json
 
       - name: Update ECS task definition with new image
