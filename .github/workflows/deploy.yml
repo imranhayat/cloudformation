@@ -5,15 +5,14 @@ on:
     branches:
       - main
     paths:
-      - "nodeapp/**"
       - ".github/workflows/deploy.yml"
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: nodeapp
-  ECS_CLUSTER: nodeapp-cluster
-  ECS_SERVICE: nodeapp-service
-  CONTAINER_NAME: nodeapp-container
+  ECR_REPOSITORY: cloudformation
+  ECS_CLUSTER: cloudformation-cluster
+  ECS_SERVICE: cloudformation-service
+  CONTAINER_NAME: cloudformation-container
   NODE_VERSION: "24"
 
 jobs:
